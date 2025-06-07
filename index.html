@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proyecto de Vida - Javier Eduardo Mayen Cruz</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#6C3483',secondary:'#2E86C1'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+background: linear-gradient(135deg, #0a0a20 0%, #1a1a40 100%);
+font-family: 'Space Grotesk', sans-serif;
+color: #fff;
+overflow-x: hidden;
+min-width: 320px;
+}
+@media (max-width: 640px) {
+.card {
+padding: 1.25rem !important;
+}
+.title {
+font-size: 1.5rem !important;
+}
+.geometric-element {
+opacity: 0.1 !important;
+}
+}
+.title {
+font-family: 'Orbitron', sans-serif;
+background: linear-gradient(90deg, #FF1493, #6C3483, #2E86C1);
+-webkit-background-clip: text;
+background-clip: text;
+color: transparent;
+}
+.card {
+background: rgba(255, 255, 255, 0.05);
+backdrop-filter: blur(10px);
+border: 1px solid rgba(255, 255, 255, 0.1);
+box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+transition: all 0.3s ease;
+position: relative;
+overflow: hidden;
+}
+.card::before {
+content: "";
+position: absolute;
+top: 0;
+left: -100%;
+width: 100%;
+height: 100%;
+background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+transition: all 0.5s ease;
+}
+.card:hover {
+transform: translateY(-5px);
+box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+.card:hover::before {
+left: 100%;
+}
+.particles {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index: -1;
+overflow: hidden;
+}
+.particle {
+position: absolute;
+background: rgba(255, 255, 255, 0.5);
+border-radius: 50%;
+animation: float 15s infinite linear;
+}
+@keyframes float {
+0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+10% { opacity: 1; }
+90% { opacity: 1; }
+100% { transform: translateY(-100vh) translateX(100px) rotate(360deg); opacity: 0; }
+}
+.nav-link {
+position: relative;
+transition: all 0.3s ease;
+text-align: center;
+}
+.nav-link::after {
+content: "";
+position: absolute;
+bottom: -5px;
+left: 50%;
+width: 0;
+height: 2px;
+background: linear-gradient(90deg, #FF1493, #6C3483);
+transition: all 0.3s ease;
+transform: translateX(-50%);
+}
+.nav-link:hover::after {
+width: 100%;
+}
+.geometric-element {
+position: absolute;
+background: linear-gradient(135deg, rgba(46, 134, 193, 0.2), rgba(108, 52, 131, 0.2));
+border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+filter: blur(3px);
+z-index: -1;
+animation: morph 15s infinite alternate;
+}
+@keyframes morph {
+0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+25% { border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%; }
+50% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; }
+75% { border-radius: 40% 60% 60% 40% / 60% 40% 60% 40%; }
+100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+}
+</style>
+</head>
+<body class="min-h-screen">
+<div class="particles" id="particles"></div>
+<div class="geometric-element w-[500px] h-[500px] top-[20%] left-[-250px] opacity-30"></div>
+<div class="geometric-element w-[400px] h-[100px] top-[60%] right-[-200px] opacity-20"></div>
+<div class="geometric-element w-[300px] h-[300px] bottom-[10%] left-[30%] opacity-15"></div>
+<header class="w-full py-4 px-6 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0 relative z-10">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 flex items-center justify-center bg-primary rounded-full">
+<i class="ri-planet-line text-white ri-lg"></i>
+</div>
+<h1 class="text-lg sm:text-xl font-bold text-center md:text-left">PROYECTO DE VIDA - JAVIER EDUARDO MAYEN CRUZ</h1>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a href="#" class="nav-link font-medium text-white opacity-90 hover:opacity-100">Inicio</a>
+<a href="#" class="nav-link font-medium text-white opacity-90 hover:opacity-100">Objetivo de mi visión</a>
+<a href="#" class="nav-link font-medium text-white opacity-90 hover:opacity-100">Metas</a>
+<a href="#" class="nav-link font-medium text-white opacity-90 hover:opacity-100">Puntos a considerar</a>
+<a href="#" class="nav-link font-medium text-white opacity-90 hover:opacity-100">Principios para alcanzar mis metas</a>
+<a href="#" class="nav-link font-medium text-white opacity-90 hover:opacity-100">Estrategias</a>
+<a href="#" class="nav-link font-medium text-white opacity-90 hover:opacity-100">Cronograma</a>
+<a href="#" class="nav-link font-medium text-white opacity-90 hover:opacity-100">Evaluacion de proyecto</a>
+</nav>
+<button id="menuButton" class="md:hidden w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors">
+<i class="ri-menu-line text-white"></i>
+</button>
+<div id="mobileMenu" class="hidden fixed top-0 left-0 w-full h-full bg-[#0a0a20] bg-opacity-95 z-50">
+<div class="container mx-auto px-4 py-8">
+<div class="flex justify-end mb-8">
+<button id="closeMenu" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors">
+<i class="ri-close-line text-white"></i>
+</button>
+</div>
+<nav class="flex flex-col items-center gap-6">
+<a href="#" class="nav-link text-lg font-medium text-white opacity-90 hover:opacity-100">Inicio</a>
+<a href="#" class="nav-link text-lg font-medium text-white opacity-90 hover:opacity-100">Objetivo de mi visión</a>
+<a href="#" class="nav-link text-lg font-medium text-white opacity-90 hover:opacity-100">Metas</a>
+<a href="#" class="nav-link text-lg font-medium text-white opacity-90 hover:opacity-100">Puntos a considerar</a>
+<a href="#" class="nav-link text-lg font-medium text-white opacity-90 hover:opacity-100">Principios para alcanzar mis metas</a>
+<a href="#" class="nav-link text-lg font-medium text-white opacity-90 hover:opacity-100">Estrategias</a>
+<a href="#" class="nav-link text-lg font-medium text-white opacity-90 hover:opacity-100">Cronograma</a>
+<a href="#" class="nav-link text-lg font-medium text-white opacity-90 hover:opacity-100">Evaluación de proyecto</a>
+</nav>
+</div>
+</div>
+</header>
+<main class="container mx-auto px-4 sm:px-6 py-8 sm:py-9 relative z-10">
+<div id="inicio" class="section active">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
+<div class="card p-8 rounded-xl relative overflow-hidden">
+<div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-primary to-secondary opacity-20 rounded-bl-[50%]"></div>
+<h2 class="title text-3xl font-bold mb-6">Visión</h2>
+<p class="text-gray-200 leading-relaxed">
+Convertirme en un líder destacado en el sector tecnológico de Guatemala, ejerciendo como Jefe de Tecnología y consolidando mi propia empresa especializada en desarrollo de software. Aspiro a impactar positivamente en la sociedad mediante soluciones digitales innovadoras, seguras y escalables, que promuevan el desarrollo tecnológico del país y generen oportunidades para futuras generaciones.
+</p>
+</div>
+<div class="card p-8 rounded-xl relative overflow-hidden">
+<div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-secondary to-primary opacity-20 rounded-bl-[50%]"></div>
+<h2 class="title text-3xl font-bold mb-6">Misión</h2>
+<p class="text-gray-200 leading-relaxed">
+Formarme integralmente como ingeniero en sistemas, combinando el aprendizaje académico con la experiencia profesional. Desarrollar habilidades técnicas, de liderazgo y de emprendimiento que me permitan contribuir con excelencia a las organizaciones en las que participe, y crear una empresa sólida que ofrezca servicios de desarrollo confiables, éticos y de alto impacto.
+</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="card p-8 rounded-xl relative overflow-hidden">
+<div class="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-primary to-secondary opacity-20 rounded-tr-[50%]"></div>
+<h2 class="title text-3xl font-bold mb-6">Principios</h2>
+<ul class="text-gray-200 leading-relaxed space-y-3">
+<li class="flex items-start gap-3">
+<div class="w-6 h-6 flex items-center justify-center mt-1">
+<i class="ri-check-line text-secondary"></i>
+</div>
+<span>Disciplina: Cumplir con mis responsabilidades académicas y laborales.</span>
+</li>
+<li class="flex items-start gap-3">
+<div class="w-6 h-6 flex items-center justify-center mt-1">
+<i class="ri-check-line text-secondary"></i>
+</div>
+<span>Responsabilidad: Asumir con madurez las consecuencias de mis decisiones.</span>
+</li>
+<li class="flex items-start gap-3">
+<div class="w-6 h-6 flex items-center justify-center mt-1">
+<i class="ri-check-line text-secondary"></i>
+</div>
+<span>Innovación: Proponer nuevas formas de resolver problemas.</span>
+</li>
+<li class="flex items-start gap-3">
+<div class="w-6 h-6 flex items-center justify-center mt-1">
+<i class="ri-check-line text-secondary"></i>
+</div>
+<span>Respeto: Valorar a los demás y trabajar en equipo.</span>
+</li>
+</ul>
+</div>
+<div class="card p-8 rounded-xl relative overflow-hidden">
+<div class="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-secondary to-primary opacity-20 rounded-tr-[50%]"></div>
+<h2 class="title text-3xl font-bold mb-6">Valores</h2>
+<ul class="text-gray-200 leading-relaxed space-y-3">
+<li class="flex items-start gap-3">
+<div class="w-6 h-6 flex items-center justify-center mt-1">
+<i class="ri-heart-line text-[#FF1493]"></i>
+</div>
+<span>Integridad: Actuar con honestidad en todas mis acciones</span>
+</li>
+<li class="flex items-start gap-3">
+<div class="w-6 h-6 flex items-center justify-center mt-1">
+<i class="ri-heart-line text-[#FF1493]"></i>
+</div>
+<span>Excelencia: Buscar siempre dar lo mejor de mí en cada proyecto.</span>
+</li>
+<li class="flex items-start gap-3">
+<div class="w-6 h-6 flex items-center justify-center mt-1">
+<i class="ri-heart-line text-[#FF1493]"></i>
+</div>
+<span>Liderazgo: Guiar con el ejemplo, motivando a otros y promoviendo.</span>
+</li>
+<li class="flex items-start gap-3">
+<div class="w-6 h-6 flex items-center justify-center mt-1">
+<i class="ri-heart-line text-[#FF1493]"></i>
+</div>
+<span>Compromiso: Mantener firmeza y constancia hacia mis metas.</span>
+</li>
+</ul>
+</div>
+</div>
+</main>
+<div id="objetivo" class="section hidden">
+<div class="card p-8 rounded-xl">
+<h2 class="title text-3xl font-bold mb-6">Objetivo de mi visión</h2>
+<p class="text-gray-200 leading-relaxed mb-6">
+Convertirme en un referente profesional en el área tecnológica, logrando ocupar un puesto de Jefe de Tecnología y creando una empresa sólida e innovadora de desarrollo de software, que contribuya al desarrollo digital del país y a la protección de la información de las organizaciones.
+</p>
+<h2 class="title text-3xl font-bold mb-6">Areas de apoyo para desarrollar mi proyecto</h2>
+<p class="text-gray-200 leading-relaxed mb-6">(Siendo 1 la mas baja)</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<i class="ri-checkbox-circle-line text-secondary mt-1"></i>
+<span>Familia</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-checkbox-circle-line text-secondary mt-1"></i>
+<span>Ciudadanía</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-checkbox-circle-line text-secondary mt-1"></i>
+<span>Emocional</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-checkbox-circle-line text-secondary mt-1"></i>
+<span>Trabajo</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-checkbox-circle-line text-secondary mt-1"></i>
+<span>Sociocultural</span>
+</li>
+</ul>
+</div>
+<div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<i class="ri-checkbox-circle-line text-secondary mt-1"></i>
+<span>Fisica</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-checkbox-circle-line text-secondary mt-1"></i>
+<span>Intelectual</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-checkbox-circle-line text-secondary mt-1"></i>
+<span>Financiera</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-checkbox-circle-line text-secondary mt-1"></i>
+<span>Espiritual</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="metas" class="section hidden">
+<div class="card p-8 rounded-xl">
+<h2 class="title text-3xl font-bold mb-6">Metas</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+<h3 class="text-xl font-semibold mb-4 text-secondary">A corto plazo</h3>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<i class="ri-award-line text-[#FF1493] mt-1"></i>
+<span>Aprobar el semestre Actual</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-award-line text-[#FF1493] mt-1"></i>
+<span>Mejorar mis habilidades técnicas de programación</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-award-line text-[#FF1493] mt-1"></i>
+<span>Participar activamenteen proyectos de desarrollo de software</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-award-line text-[#FF1493] mt-1"></i>
+<span>Fortalecer mi disciplina y habitos para alcanzar mis metas</span>
+</li>
+</ul>
+</div>
+<div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+<h3 class="text-xl font-semibold mb-4 text-secondary">Metas a medio plazo</h3>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<i class="ri-heart-line text-[#FF1493] mt-1"></i>
+<span>Obtener certificaciones profecionales en Tecnología y liderazgo</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-heart-line text-[#FF1493] mt-1"></i>
+<span>Empezar la planificación y validación de mi empresa</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-heart-line text-[#FF1493] mt-1"></i>
+<span>Postularme a un cargo de liderazgo tecnico en una empresa</span>
+</li>
+</ul>
+</div>
+<div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+<h3 class="text-xl font-semibold mb-4 text-secondary">Metas a largo plazo</h3>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<i class="ri-money-dollar-circle-line text-[#FF1493] mt-1"></i>
+<span>Lanzar y consolidar mi empresa de desarrollo</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-money-dollar-circle-line text-[#FF1493] mt-1"></i>
+<span>Alcanzar un puesto de jefe de tecnología</span>
+</li>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-money-dollar-circle-line text-[#FF1493] mt-1"></i>
+<span>Mantenerme actualizado profecionalmente con cursos avanzados en tecnologia y gestion </span>
+</li>
+</ul>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-money-dollar-circle-line text-[#FF1493] mt-1"></i>
+<span>Establecer un equilibrio solido entre la vida personal y laboral</span>
+</li>
+</div>
+</div>
+</div>
+</div>
+<div id="puntos" class="section hidden">
+<div class="card p-8 rounded-xl">
+<h2 class="title text-3xl font-bold mb-6">Puntos a considerar</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+<h3 class="text-xl font-semibold mb-4 text-secondary">Puntos fuertes</h3>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<i class="ri-shield-star-line text-secondary mt-1"></i>
+<span>Ya estoy trabajando como desarrollador, lo que me da experiencia real miestras estudio</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-shield-star-line text-secondary mt-1"></i>
+<span>Estoy muy motuvado porque tengo clara mi vision profecional y se hacia donde quiero ir</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-shield-star-line text-secondary mt-1"></i>
+<span>Tengo acceso a cursos, plataformas y materiales, lo que me permite aprender mas</span>
+</li>
+</ul>
+</div>
+<div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+<h3 class="text-xl font-semibold mb-4 text-secondary">Puntos debiles u obstaculos</h3>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<i class="ri-focus-line text-secondary mt-1"></i>
+<span>A veces me cuesta organizar bien mi tiempo entre el trabajo, la universidad y mi vida personal</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-focus-line text-secondary mt-1"></i>
+<span>Puedo sentirme abrumado por la carga academica y laboral</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-focus-line text-secondary mt-1"></i>
+<span>Me distraigo facilmente si no tengo rutinas bien definidas</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="principios" class="section hidden">
+<div class="card p-8 rounded-xl">
+<h2 class="title text-3xl font-bold mb-6">Principios para alcanzar mis metas</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+<div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+<h3 class="text-xl font-semibold mb-4 text-secondary">A corto plazo</h3>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<i class="ri-compass-line text-secondary mt-1"></i>
+<span>Disciplina: Comprometerme a mantener horarios claros</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-compass-line text-secondary mt-1"></i>
+<span>Responsabilidad: Cumplir con mis deberes académicos y laborales</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-compass-line text-secondary mt-1"></i>
+<span>Autoconocimiento: Reconocer mis limites y aprovechar cada oportunidad</span>
+</li>
+</ul>
+</div>
+<div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+<h3 class="text-xl font-semibold mb-4 text-secondary">A mediano plazo</h3>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<i class="ri-calendar-check-line text-secondary mt-1"></i>
+<span>Perseverancia: No rendirme ante los obstaculos, si algo falla lo volvere a intentar</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-calendar-check-line text-secondary mt-1"></i>
+<span>Ambicion: Mis metas tambien tienen un impacto positivo en mi vida personal</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-calendar-check-line text-secondary mt-1"></i>
+<span>Organizacion: Planificar cada estapa con objetivos claros y medibles</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-calendar-check-line text-secondary mt-1"></i>
+<span>Compromiso: Buscar hacer las cosas bien, no solo por terminarlas</span>
+</li>
+</ul>
+</div>
+<div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+<h3 class="text-xl font-semibold mb-4 text-secondary">A largo plazo</h3>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<i class="ri-compass-line text-secondary mt-1"></i>
+<span>Liderazogo: Aspiro a liderar con honestidad, respeto y vision profesional</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-compass-line text-secondary mt-1"></i>
+<span>Innovacion: Estoy abierto a nuevas ideas, tecnologias y formas de resolver problemas</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-compass-line text-secondary mt-1"></i>
+<span>Balance: Me esforzare por mantener un equilibrio entre mi vida personal y mi labor profesional</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="estrategias" class="section hidden">
+<div class="card p-1 rounded-xl">
+<h2 class="title text-3xl font-bold mb-6 text-align-center text-center">Estrategias</h2>
+<div class="grid  grid-cols-[15%_1fr_1fr_1fr] grid-rows-2 md:grid-rows-3 gap-1">
+<div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl flex items-center justify-center">
+<h3 class="text-xl font-semibold mb-4 text-secondary text-center">Para alcanzar mis metas</h3>
+</div>
+<div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+<h3 class="text-xl font-semibold mb-4 text-secondary">A corto plazo</h3>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<i class="ri-lightbulb-line text-[#FF1493] mt-1"></i>
+<span>Establecer un horario</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-lightbulb-line text-[#FF1493] mt-1"></i>
+<span>Aprovechar mi trabajo</span>
+</li>
+</ul>
+</div>
+<div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+<h3 class="text-xl font-semibold mb-4 text-secondary">A mediano plazo</h3>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<i class="ri-book-open-line text-[#FF1493] mt-1"></i>
+<span>Tomar mas responsabilidades</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-book-open-line text-[#FF1493] mt-1"></i>
+<span>Establecer metas y objetivos claros</span>
+</li>
+</ul>
+</div>
+<div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+<h3 class="text-xl font-semibold mb-4 text-secondary">A largo plazo</h3>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<i class="ri-rocket-line text-[#FF1493] mt-1"></i>
+<span>Buscar oportunidades de liderezgo</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-rocket-line text-[#FF1493] mt-1"></i>
+<span>Diseñar un plan de negocio</span>
+</li>
+</ul>
+</div>
+<div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl flex items-center justify-center">
+<h3 class="text-xl font-semibold mb-4 text-secondary text-center">Para vencer los obstáculos</h3>
+</div>
+<div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<i class="ri-lightbulb-line text-[#FF1493] mt-1"></i>
+<span>gestionar mejor mi tiempo</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-lightbulb-line text-[#FF1493] mt-1"></i>
+<span>Crear rutinas para mejorar mi productividad</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-lightbulb-line text-[#FF1493] mt-1"></i>
+<span>Reducir las distracciones</span>
+</li>
+</ul>
+</div>
+<div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<i class="ri-book-open-line text-[#FF1493] mt-1"></i>
+<span>Comenzar un ahorro</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-book-open-line text-[#FF1493] mt-1"></i>
+<span>Tener un retroalimentación regular</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-book-open-line text-[#FF1493] mt-1"></i>
+<span>Aprender a delegar</span>
+</li>
+</ul>
+</div>
+<div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<i class="ri-rocket-line text-[#FF1493] mt-1"></i>
+<span>Buscar asesoria de negocios</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-rocket-line text-[#FF1493] mt-1"></i>
+<span>Establecer limites claros</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-rocket-line text-[#FF1493] mt-1"></i>
+<span>Planificar proyectos innovadores</span>
+</li>
+</ul>
+</div>
+<div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl flex items-center justify-center">
+<h3 class="text-xl font-semibold mb-4 text-secondary text-center">Para vencer los problemas</h3>
+</div>
+<div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<i class="ri-lightbulb-line text-[#FF1493] mt-1"></i>
+<span>Buscar motivacion e inspiración</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-lightbulb-line text-[#FF1493] mt-1"></i>
+<span>Priorizar tareas y proyectos</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-lightbulb-line text-[#FF1493] mt-1"></i>
+<span>Documentar errores y desafíos</span>
+</li>
+</ul>
+</div>
+<div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<i class="ri-book-open-line text-[#FF1493] mt-1"></i>
+<span>Autoevaluación de metas y objetivos</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-book-open-line text-[#FF1493] mt-1"></i>
+<span>Optimizacion de recursos </span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-book-open-line text-[#FF1493] mt-1"></i>
+<span>Redefinir metas y objetivos</span>
+</li>
+</ul>
+</div>
+<div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<i class="ri-rocket-line text-[#FF1493] mt-1"></i>
+<span>Buscar asesoria de negocios</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-rocket-line text-[#FF1493] mt-1"></i>
+<span>Tomar cursos de liderazgo</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-rocket-line text-[#FF1493] mt-1"></i>
+<span>Mantener la calma y la concentración</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="cronograma" class="section hidden">
+<div class="card p-1 rounded-xl">
+<h2 class="title text-3xl font-bold mb-6 text-align-center text-center">Cronograma</h2>
+<div class="grid  grid-cols-[5%_1fr_12%_12%_12%] grid-rows-2 md:grid-rows-3 gap-1">
+<div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+<h3 class="text-xl font-semibold mb-4 text-secondary">No</h3>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<span>1</span>
+</li>
+<li class="flex items-start gap-3">
+<span>2</span>
+</li>
+</ul>
+</div>
+<div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+<h3 class="text-xl font-semibold mb-4 text-secondary">Actividades</h3>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<i class="ri-lightbulb-line text-[#FF1493] mt-1"></i>
+<span>Aprobar el semestre actual</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-lightbulb-line text-[#FF1493] mt-1"></i>
+<span>Nejorar mis habilidades tecnicas en programacion</span>
+</li>
+</ul>
+</div>
+<div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+<h3 class="text-xm font-semibold mb-4 text-secondary">A corto plazo</h3>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<span>Julio_25</span>
+</li>
+<li class="flex items-start gap-3">
+<span>Dic_25</span>
+</li>
+</ul>
+</div>
+<div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+<h3 class="text-xm font-semibold mb-4 text-secondary">A mediano plazo</h3>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+    <span>-</span>
+</li>
+<li class="flex items-start gap-3">
+    <span>-</span>
+</li>
+</ul>
+</div>
+<div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+<h3 class="text-xm font-semibold mb-4 text-secondary">A largo plazo</h3>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+    <span>-</span>
+</li>
+<li class="flex items-start gap-3">
+    <span>-</span>
+</li>
+</ul>
+</div>
+<div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<span>3</span>
+</li>
+<li class="flex items-start gap-3">
+<span>4</span>
+</li>
+<li class="flex items-start gap-3">
+<span>5</span>
+</li>
+</ul>
+</div>
+<div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<i class="ri-lightbulb-line text-[#FF1493] mt-1"></i>
+<span>Participar activamente en proyectos de desarrollo en el trabajo</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-lightbulb-line text-[#FF1493] mt-1"></i>
+<span>Fortalcer mi disciplina y gestion de tiempo
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-lightbulb-line text-[#FF1493] mt-1"></i>
+<span>Tomar un curso de liderazgo y trabajo en equipo</span>
+</li>
+</ul>
+</div>
+<div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<span>Oct_25</span>
+</li>
+<li class="flex items-start gap-3">
+<span>Ago_25</span>
+</li>
+<li class="flex items-start gap-3">
+<span>-</span>
+</li>
+</ul>
+</div>
+<div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<span>-</span>
+</li>
+<li class="flex items-start gap-3">
+<span>-</span>
+</li>
+<li class="flex items-start gap-3">
+<span>Mar_26</span>
+</li>
+</ul>
+</div>
+<div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<span>-</span>
+</li>
+<li class="flex items-start gap-3">
+<span>-</span>
+</li>
+<li class="flex items-start gap-3">
+<span>-</span>
+</li>
+</ul>
+</div>
+<div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<span>6</span>
+</li>
+<li class="flex items-start gap-3">
+<span>7</span>
+</li>
+<li class="flex items-start gap-3">
+<span>8</span>
+</li>
+</ul>
+</div>
+<div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<i class="ri-lightbulb-line text-[#FF1493] mt-1"></i>
+<span>Crear un plan de negocios y iniciar la planificacion de mi empresa</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-lightbulb-line text-[#FF1493] mt-1"></i>
+<span>Lanzar mi empresa  de desarollo de software formalmente al mercado</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-lightbulb-line text-[#FF1493] mt-1"></i>
+<span>Lograr un equilibrio entre la vida personal y la profesional</span>
+</li>
+</ul>
+</div>
+<div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<span>-</span>
+</li>
+<li class="flex items-start gap-3">
+<span>-</span>
+</li>
+<li class="flex items-start gap-3">
+<span>-</span>
+</li>
+</ul>
+</div>
+<div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<span>Oct_27</span>
+</li>
+<li class="flex items-start gap-3">
+<span>-</span>
+</li>
+<li class="flex items-start gap-3">
+<span>-</span>
+</li>
+</ul>
+</div>
+<div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<span>-</span>
+</li>
+<li class="flex items-start gap-3">
+<span>Ago_29</span>
+</li>
+<li class="flex items-start gap-3">
+<span>Mar_30</span>
+</li>
+</ul>
+</div>
+
+</div>
+</div>
+</div>
+<div id="evaluacion" class="section hidden">
+<div class="card p-8 rounded-xl">
+<h2 class="title text-3xl font-bold mb-6">Evaluación de proyecto</h2>
+<div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+<h3 class="text-xl font-semibold mb-4 text-secondary">(Avances)</h3>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<i class="ri-bar-chart-line text-secondary mt-1"></i>
+<span>He logrado estaclecer un ratina mas organizada</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-bar-chart-line text-secondary mt-1"></i>
+<span>Estoy fortaleciendo mus habilidades de programacion tecnicas como desarrollador</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-bar-chart-line text-secondary mt-1"></i>
+<span>Tengo certificaciones de cursosode desarrollo de software</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-bar-chart-line text-secondary mt-1"></i>
+<span>He mejorado mi disciplina y he empezado a enfocarme mas en desarrollo profecionalss</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-bar-chart-line text-secondary mt-1"></i>
+<span>Ya empece a ahorrar con el objetivode financiar certificaciones tecnicas</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-bar-chart-line text-secondary mt-1"></i>
+<span>Estoy aprendiendo sobre liderazgo y trabajo en equipo dentro de mi entorno laboral</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-bar-chart-line text-secondary mt-1"></i>
+<span>Estoy investigando sobre las necesidades del mercado de desarrollo de software</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-bar-chart-line text-secondary mt-1"></i>
+<span>Estoy adquiriendo experiencia valiosa que me acercara a roles de liderazgo</span>
+</li>
+<li class="flex items-start gap-3">
+<i class="ri-bar-chart-line text-secondary mt-1"></i>
+<span>Ya inicie la planificacion de los pasos necesarios para comenzar como emprendedor</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<script id="mobile-menu-script">
+document.addEventListener('DOMContentLoaded', function() {
+const menuButton = document.getElementById('menuButton');
+const closeMenu = document.getElementById('closeMenu');
+const mobileMenu = document.getElementById('mobileMenu');
+menuButton.addEventListener('click', () => {
+mobileMenu.classList.remove('hidden');
+document.body.style.overflow = 'hidden';
+});
+closeMenu.addEventListener('click', () => {
+mobileMenu.classList.add('hidden');
+document.body.style.overflow = 'auto';
+});
+const mobileLinks = mobileMenu.querySelectorAll('a');
+mobileLinks.forEach(link => {
+link.addEventListener('click', () => {
+mobileMenu.classList.add('hidden');
+document.body.style.overflow = 'auto';
+});
+});
+});
+</script>
+<script id="section-switcher">
+document.addEventListener('DOMContentLoaded', function() {
+const sections = document.querySelectorAll('.section');
+const navLinks = document.querySelectorAll('nav a');
+function showSection(sectionId) {
+sections.forEach(section => {
+section.classList.add('hidden');
+});
+const targetSection = document.getElementById(sectionId);
+if (targetSection) {
+targetSection.classList.remove('hidden');
+}
+}
+navLinks.forEach(link => {
+link.addEventListener('click', (e) => {
+e.preventDefault();
+const sectionId = link.textContent.toLowerCase().split(' ')[0];
+showSection(sectionId);
+navLinks.forEach(navLink => {
+navLink.classList.remove('text-secondary');
+});
+link.classList.add('text-secondary');
+});
+});
+showSection('inicio');
+});
+</script>
+<script id="particles-script">
+document.addEventListener('DOMContentLoaded', function() {
+const particlesContainer = document.getElementById('particles');
+// Create particles
+for (let i = 0; i < 50; i++) {
+const particle = document.createElement('div');
+particle.classList.add('particle');
+// Random size
+const size = Math.random() * 4 + 1;
+particle.style.width = `${size}px`;
+particle.style.height = `${size}px`;
+// Random position
+particle.style.left = `${Math.random() * 100}%`;
+particle.style.top = `${Math.random() * 100}%`;
+// Random animation duration
+const duration = Math.random() * 20 + 10;
+particle.style.animationDuration = `${duration}s`;
+// Random animation delay
+const delay = Math.random() * 10;
+particle.style.animationDelay = `${delay}s`;
+particlesContainer.appendChild(particle);
+}
+});
+</script>
+</body>
+</html>
